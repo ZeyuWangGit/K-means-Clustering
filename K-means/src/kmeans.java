@@ -8,7 +8,7 @@ public class kmeans{
 	public static void main(String[] args) throws FileNotFoundException, IOException{
 		//1、获取文档输入
 		DocumentAnalysis documentAnalysis = new DocumentAnalysis();
-    	String directory = "blog_data";
+    	String directory = "two_newsgroups";
     	documentAnalysis.analyzeFile(directory);
     	
     	//2、初始化TFIDF测量器，用来生产每个文档的TFIDF权重
@@ -32,7 +32,7 @@ public class kmeans{
 
     	
    
-    	int K =8; //聚成3个聚类
+    	int K =2; //聚成3个聚类
     	
     	if(K>=5){
     		K=K+2;
@@ -72,7 +72,8 @@ public class kmeans{
     		
     		for(int k = 0; k < members.size(); k++)
     		{
-    			System.out.print(members.get(k)+"  ");
+    			//System.out.print(members.get(k)+":");
+    			System.out.println(documentAnalysis.nameTransfer.get(members.get(k))+ " ");
     		}
     		
     		System.out.println();

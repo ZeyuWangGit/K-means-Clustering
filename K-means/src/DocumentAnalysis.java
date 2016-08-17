@@ -9,12 +9,13 @@ import util.FileFinder;
 public class DocumentAnalysis {
 
     //This variable will hold all terms of each document in an array.
-	public String address_all = "blog_data";
+	public String address_all = "two_newsgroups";
 	public HashMap<String,Integer>  allTermIndex_d;
 	public HashMap<String,Integer> DocTermCount_d;
 	public HashMap<Integer, HashMap<String, Integer>> outHashMap = new HashMap<>();
 	public HashMap<Integer,HashMap<Integer,Double>> tfDocsVector = new HashMap<>();
 	public double consineSimilarity = 0.0;
+	public HashMap<Integer,String> nameTransfer = new HashMap<>();
 
     public void analyzeFile(String directory) throws FileNotFoundException, IOException{
     	
@@ -27,11 +28,12 @@ public class DocumentAnalysis {
     	ArrayList<File> files = FileFinder.GetAllFiles(directory, "", true);
     	int index = 0;
     	for (File f : files) {
+    		//System.out.println(f);
+    		nameTransfer.put(index, f.toString());
     		SingleDocHandle termIndex_single = new SingleDocHandle(f,1000000,true);
     		DocTermCount_d = (HashMap<String, Integer>) termIndex_single.getDocTermCount();
-    		
-    		
     		outHashMap.put(index++, DocTermCount_d);
+    		
     	}
     	
     	

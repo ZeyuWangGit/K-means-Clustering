@@ -16,7 +16,7 @@ public class TfIdf {
         }
         //System.out.print(count);
         //return count / sum;
-        return count;
+        return count/sum;
         
     }
  
